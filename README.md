@@ -8,8 +8,8 @@ Deploy'em is a simple deployment tool for Rails apps that are deployed to Heroku
 
 This gem is based on the idea that you have 2 branches in your git repository and each one of them has a associated Heroku app:
 
-- master branch that is deployed to a Heroku Production server
-- develop branch that is deployed to a Heroku Staging server
+- a ```master``` branch that is deployed to a Heroku Production app
+- a ```develop``` branch that is deployed to a Heroku Staging app
 
 ## Installation
 
