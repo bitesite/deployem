@@ -31,10 +31,10 @@ Or install it yourself as:
 
 For this gem to work, you'll need to have the following setup
 
-- a master branch in your Git repository
-- a develop branc in your Git repository
-- a heroku app who's remote is named 'heroku'
-- a heroku app who's remote is named 'heroku-staging'
+- a ```master``` branch in your Git repository
+- a ```develop``` branch in your Git repository
+- a heroku app who's remote is named ```heroku```
+- a heroku app who's remote is named ```heroku-staging```
 
 You'll also need to have the Heroku CLI installed if you're going to take advantage of the DB migrations part.
 
@@ -44,19 +44,29 @@ This gem is a collection of rake tasks, so after installing it, simply run the r
 
 ### Deploy Staging
 
-Run:
+This task does two things:
 
-    rake deploy:staging
+- Pushes the latest ```develop``` branch to a Git remote called ```heroku-staging```
+- Asks you if you want to run DB migrations
 
-Which will basically run a ```git push heroku-staging develop:master``` and then ask you if you want to run DB migrations which will in turn will run ```heroku run rake db:migrate -r heroku-staging````.
+To use it, run:
+
+    $ rake deploy:staging
+
+Which will basically run a ```git push heroku-staging develop:master``` and then ask you if you want to run DB migrations which will in turn will run ```heroku run rake db:migrate -r heroku-staging```.
 
 ### Deploy Production
 
-Run:
+This task does two things:
 
-    rake deploy:production
+- Pushes the latest ```master``` branch to a Git remote called ```heroku```
+- Asks you if you want to run DB migrations
 
-Which will basically run a ```git push heroku master:master``` and then ask you if you want to run DB migrations which will in turn will run ```heroku run rake db:migrate -r heroku````.
+To use it, run:
+
+    $ rake deploy:production
+
+Which will basically run a ```git push heroku master:master``` and then ask you if you want to run DB migrations which will in turn will run ```heroku run rake db:migrate -r heroku```.
 
 
 
