@@ -34,13 +34,6 @@ namespace :deploy do
       
       output = `git push #{remote_name} #{branch_name}:master`
 
-      # TODO: Verify somehow that the heroku deploy succeeded
-      #       Can't seem to analyze the output of the git push
-      # puts "====================="
-      # puts output
-      # puts "====================="
-      # if output.include?("Verifying deploy... done.")
-
       puts ""
       puts "Would you like to run migrations? [y/n]"
       puts ""
