@@ -32,7 +32,7 @@ namespace :deploy do
 
     if sure
       
-      output = `git push #{remote_name} #{branch_name}:master`
+      `git push #{remote_name} #{branch_name}:master`
 
       puts ""
       puts "Would you like to run migrations? [y/n]"
@@ -40,7 +40,10 @@ namespace :deploy do
       puts ""
       if STDIN.gets.strip == 'y'
         puts "...running database migrations..."
-        `heroku run rake db:migrate -r #{remote_name}`
+        
+        output = `heroku run rake db:migrate -r #{remote_name}`
+        
+        puts output
         puts "...database migrations complete..."
       else
         puts "...database migrations not run..."
